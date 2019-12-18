@@ -1,10 +1,14 @@
+import os
+
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
+import os.path
 
 from random import randint
 from time import sleep
+
 
 def simple_get(url):
     """
@@ -42,6 +46,7 @@ def log_error(e):
     """
     print(e)
 
+
 if __name__ == "__main__":
     raw_html = simple_get('https://www.iposcoop.com/last-12-months/')
     html = BeautifulSoup(raw_html, 'html.parser')
@@ -58,6 +63,9 @@ if __name__ == "__main__":
             print("index err")
             continue
 
+        if os.path.isfile(ticker + ".txt"):  # this is so we can skip redundant searches/updates
+            continue
+
         ms_soup = simple_get(mission_statement_html)
         ms_soup = BeautifulSoup(ms_soup, 'html.parser')
         print(ms_soup.findAll('p'))
@@ -65,7 +73,7 @@ if __name__ == "__main__":
 
         print(text)
         print(ticker)
-        file = open('mission_statements/'+ticker+'.txt', 'w')
+        file = open('mission_statements/' + ticker + '.txt', 'w')
         file.write(text)
 
-        sleep(randint(10, 100)*.01) #sleep for random amount of time
+        sleep(randint(10, 100) * .01)  # sleep for random amount of time

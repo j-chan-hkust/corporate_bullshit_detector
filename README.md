@@ -19,7 +19,16 @@ otherwise, it will often target the wrong block of text, or return empty text *f
 
 Web scrapes yahoo finance for previous stock history information
 
+Todo:
+Figure out how to collect the data on the stock return after 3, 6, 12 months
 
 ### Stage 2 - Download language prediction tool for wikipedia dataset
 
 ### Stage 3 - train/fine-tune using ULMFit
+Ideally the pandas dataframe will be formatted like this:
+filename        day 1 % return      3 month % return    6 month % return    12 month % return
+xxx.txt         1.1                 1.4                 1.9                 -0.5
+
+the text stored in xxx.txt will be the x variable to be trained against
+test using different times as y variable
+

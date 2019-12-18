@@ -53,18 +53,19 @@ if __name__ == "__main__":
 
         try:
             mission_statement_html = tr.findAll('a')[0].get('href')
-            yahoo_financial_html = tr.findAll('a')[1].get('href')
+            ticker = tr.findAll('a')[1].text
         except IndexError:
             print("index err")
             continue
 
         ms_soup = simple_get(mission_statement_html)
         ms_soup = BeautifulSoup(ms_soup, 'html.parser')
-        yf_soup = simple_get(mission_statement_html)
-        yf_soup = BeautifulSoup(yf_soup, 'html.parser')
+        print(ms_soup.findAll('p'))
+        text = ms_soup.findAll('p')[1].text
 
-        for tr2 in ms_soup.findAll('table')[0].findAll('tr'):
-            print(tr2)
+        print(text)
+        print(ticker)
+        file = open('mission_statements/'+ticker+'.txt', 'w')
+        file.write(text)
 
-        break
         sleep(randint(10, 100)*.01) #sleep for random amount of time

@@ -5,6 +5,8 @@ Inspired by: https://www.youtube.com/watch?v=pqFnmhqReRM
 ### Stage 1 - Web Scraper - ipoScoop:
 Web scrapes iposcoop.com for 2 things - stock ticker code and company description/mission statement
 
+Currently, company description is stored as a xxx.txt file, where xxx is the stock ticker
+
 For earlier stock info, we look at waybackmachine archive
 Still, a lot of company info has been deleted, assumedly because the company no longer exists
 

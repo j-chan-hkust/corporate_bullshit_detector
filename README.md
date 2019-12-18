@@ -27,6 +27,8 @@ Figure out how to collect the data on the stock return after 3, 6, 12 months
 ### Stage 2 - Download language prediction tool for wikipedia dataset
 
 ### Stage 3 - train/fine-tune using ULMFit
+Using the tools provided by http://nlp.fast.ai/category/classification.html
+
 Ideally the pandas dataframe will be formatted like this:
 filename        day 1 % return      3 month % return    6 month % return    12 month % return
 xxx.txt         1.1                 1.4                 1.9                 -0.5
